@@ -1,24 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-
-import SpotifyLogin from 'react-spotify-login';
-import { clientId, redirectUri } from './settings';
  
-const onSuccess = response => console.log(response);
-const onFailure = response => console.error(response);
-
-
 ReactDOM.render(
   <React.StrictMode>
-    
-    <SpotifyLogin clientId={clientId}
-        redirectUri={redirectUri}
-        onSuccess={onSuccess}
-        onFailure={onFailure}/>,
-      document.getElementById('example'),
       <App />
   </React.StrictMode>,
  
