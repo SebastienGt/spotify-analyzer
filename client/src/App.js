@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { token } from './spotify';
 
 import LoginScreen from './components/LoginScreen';
 import Profile from './components/Profile';
@@ -16,6 +17,22 @@ const AppContainer = styled.div`
   min-height: 100vh;
 `;
 
+const App = () => {
+  const [accessToken, setAccessToken] = useState('');
+
+  useEffect(() => {
+    setAccessToken(token);
+  }, []);
+
+  return (
+    <AppContainer>
+      {accessToken ? <Profile /> : <LoginScreen />}
+    </AppContainer>
+  );
+};
+
+
+/*
 class App extends Component{
   constructor() {
     super();
@@ -48,7 +65,7 @@ class App extends Component{
       </AppContainer>
     );
   }
-}
+}*/
 
 export const te = params;
 export default App;
