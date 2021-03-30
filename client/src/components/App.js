@@ -1,15 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Spotify from 'spotify-web-api-js';
 import React, { useState, useEffect } from 'react';
-import { token } from './spotify';
+import { token } from '../spotify';
 
-import LoginScreen from './components/LoginScreen';
-import Profile from './components/Profile';
+import LoginScreen from './LoginScreen';
+import Profile from './Profile';
 import styled from 'styled-components/macro';
 
-const spotifyWebApi = new Spotify();
-var loggedIn = false;
 const params = null;
 
 const AppContainer = styled.div`
@@ -67,5 +63,4 @@ class App extends Component{
   }
 }*/
 
-export const te = params;
 export default App;

@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { Router } from '@reach/router';
 import mixins from '../styles/mixins';
 import Main from '../styles/Main';
-import Spotify from 'spotify-web-api-js';
-import { te } from '../App';
 import { token } from '../spotify';
-
-const spotifyWebApi = new Spotify();
+import { logout, getUser, getRecentlyPlayed, getUserInfo } from '../spotify';
 
 const Loginned = styled(Main)`
   ${mixins.flexCenter};
@@ -16,34 +14,20 @@ const Loginned = styled(Main)`
   }
 `;
 
-const state = {
-  loggedIn: token ? true: false,
-  nowPlaying: {
-    name: 'Not Checked',
-    image: ''
-  }
-}
 
-const getNowPlaying = () => {
-    spotifyWebApi.getMyCurrentPlaybackState()
-      .then((response) => {
-        this.setState({
-          nowPlaying: {
-            name: response.item.name,
-            image: response.item.album.images[0].url
-          }
-        })
-      })
-  }
 const Profile = () => (
+  //const { user, topArtists, topTracks } = this.state;
+
     <Loginned>
-      <div> Now Playing: { state.nowPlaying.name }</div>
-      <div>
-        <img src={ state.nowPlaying.image } style= {{ width: 100}}/>
-      </div>
-      <button onClick= {() => getNowPlaying()}>
-        Check Now Playing
-      </button>
+
+
+      <h4>{ token } </h4>
+      <button onClick={ getRecentlyPlayed }>Check Now Playing</button>
+      <button onClick={ getUser }>Get User</button>
+      <button onClick={ logout }>Logout</button>
+      <button onClick={ getUserInfo }>Get All User Info</button>
+    
+
     </Loginned>
 );
 
