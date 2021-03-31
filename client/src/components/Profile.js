@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Router } from '@reach/router';
 import mixins from '../styles/mixins';
 import Main from '../styles/Main';
 import { token } from '../spotify';
-import { logout, getUser, getRecentlyPlayed, getUserInfo } from '../spotify';
+import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
+import Spotify from 'spotify-web-api-js';
+import Component from 'styled-components';
+import CurrentPlaying from './CurrentPlaying';
+import Nav from './Nav';
 
 const Loginned = styled(Main)`
   ${mixins.flexCenter};
@@ -15,20 +19,23 @@ const Loginned = styled(Main)`
 `;
 
 
-const Profile = () => (
-  //const { user, topArtists, topTracks } = this.state;
+const spotifyWebApi = new Spotify;
 
+const Profile = () => {
+  return (
     <Loginned>
-
-
-      <h4>{ token } </h4>
-      <button onClick={ getRecentlyPlayed }>Check Now Playing</button>
+      <a>{ token } </a>
+      <button onClick={ getCurrentPlaying }>Check Now Playing</button>
       <button onClick={ getUser }>Get User</button>
       <button onClick={ logout }>Logout</button>
       <button onClick={ getUserInfo }>Get All User Info</button>
-    
-
+      <Nav />
+      <Router primary={false}>
+        <CurrentPlaying path="playing" />
+      </Router>
     </Loginned>
-);
+  );
+}
+
 
 export default Profile;
