@@ -21,8 +21,17 @@ const CurrentPlaying = () => {
     return (
         <div>
             <h4> Current Playing song</h4>
-            <a> { Playing.item.name } </a>
-            <img src={Playing.item.album.images[2].url } alt="Album"/>
+            <div>
+                { Playing ? (
+                    <div>
+                        <a> { Playing.item.name } </a>
+                        <img src={Playing.item.album.images[2].url } alt="Album"/>
+                    </div>
+                ) : (
+                    <h1>No current song playing</h1>
+                )
+                }
+            </div>
         </div>
     );
 }
