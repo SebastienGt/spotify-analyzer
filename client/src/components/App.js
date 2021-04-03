@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { token } from '../spotify';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import LoginScreen from './LoginScreen';
 import Profile from './Profile';

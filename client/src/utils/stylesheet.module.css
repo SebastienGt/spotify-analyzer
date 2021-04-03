@@ -1,0 +1,111 @@
+
+h1 {
+    color: white;
+}
+
+.logo {
+    background-image: url(http://mhdnyc.splashthat.com/img/events/52537/assets/6274.spotify-logo-horizontal-white-rgb.png);
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    margin-top: 25px;
+}
+
+.header {
+    margin-top: 25px;
+    width: 100%;
+    height: 150px;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.1);
+    text-align: center;
+}
+
+.centerImage {
+    text-align: center;
+}
+
+.loginButton {
+    display: inline-block;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 30px;
+    padding: 17px 35px;
+    margin: 20px 0 70px;
+    min-width: 160px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+a:hover:focus {
+    background-color: #188D42;
+}
+
+
+.login {
+    min-height: 60vh;
+    text-align: center;
+}
+
+nav {
+    height:50px;
+    background: linear-gradient(45deg, rgb(156,14,156, midnightblue));
+
+}
+
+.liste {
+    list-style-type: none;
+    background: linear-gradient(45deg, rgb(156,14,156, midnightblue));
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+.items{
+    margin-right: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn{
+    display: none;
+}
+
+
+.nowPlaying{
+
+}
+
+.playing{
+    color:white;
+    width:50%;
+}
+
+current{
+    color:white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-left:350px;
+}
+
+.columnLeft {
+    width: 65%;
+}
+
+.columnRight {
+    width: 35%;
+}
+
+.songPlaying {
+    width: 300px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}

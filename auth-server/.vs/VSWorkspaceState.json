@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\authorization_code",
+    "\\authorization_code\\public",
+    "\\client_credentials",
+    "\\implicit_grant",
+    "\\implicit_grant\\public"
+  ],
+  "SelectedNode": "\\authorization_code\\app.js",
+  "PreviewInSolutionExplorer": false
+}

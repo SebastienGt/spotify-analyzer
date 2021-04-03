@@ -4,10 +4,10 @@ const theme = {
       offGreen: '#1ed760',
       blue: '#509bf5',
       navBlack: '#040306',
-      black: '#181818',
+      black: '#191414',
       white: '#FFFFFF',
       lightestGrey: '#b3b3b3',
-      lightGrey: '#9B9B9B',
+      lightGrey: '#c4c4c4',
       grey: '#404040',
       darkGrey: '#282828',
     },
@@ -49,8 +49,8 @@ const theme = {
   
     transition: `all 0.25s cubic-bezier(0.3, 0, 0.4, 1);`,
   
-    navWidth: '100px',
-    navHeight: '70px',
+    navWidth: '300px',
+    navHeight: '200px',
   };
   
   export default theme;

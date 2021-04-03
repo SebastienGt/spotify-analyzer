@@ -4,19 +4,17 @@ import { token, getCurrentPlaying } from '../spotify';
 import { catchErrors } from '../utils';
 import currentPlaying from './CurrentPlaying';
 import stylesheet from '../utils/stylesheet.module.css';
-//import '../utils/stylesheet.module.css';
 
-
-const CurrentPlaying = () => {
-    const [Playing, setCurrentPlaying] = useState(null);
+const UserInfo = () => {
+    const [Playing, setUserInfo] = useState(null);
 
     useEffect(() => {
-    const fetchData = async () => {
-        const { data } = await getCurrentPlaying();
-        console.log("yoooooooooooo" + data);
-        setCurrentPlaying(data);
+        const fetchData = async () => {
+            const { data } = await getUser();
+            console.log("yoooooooooooo" + data);
+            setUserInfo(data);
         };
-    catchErrors(fetchData());
+        catchErrors(fetchData());
     }, []);
 
     return (
@@ -31,8 +29,8 @@ const CurrentPlaying = () => {
                             <h4> {Playing.item.artists[0].name} </h4>
                         </div>
                     ) : (
-                        <h1>No current song playing</h1>
-                    )
+                            <h1>No current song playing</h1>
+                        )
                     }
                 </div>
             </div>
@@ -41,4 +39,4 @@ const CurrentPlaying = () => {
 }
 
 
-export default CurrentPlaying;
+export default UserInfo;

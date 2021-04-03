@@ -1,0 +1,28 @@
+nav {
+    height: 50px;
+}
+
+.list {
+    list-style-type: none;
+    background: linear-gradient(#169e47, #1ed760);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 25px;
+}
+
+.items {
+    margin-right: 10px;
+    color: white;
+    cursor: pointer;
+    width: 25%;
+    text-align: center;
+    font-family: Circular Std;
+    font-weight: 700;
+}
+
+.btn {
+    display: none;
+}
