@@ -9,19 +9,12 @@ const { colors, fontSizes } = theme;
 
 const LOGIN_URI = 'http://localhost:8888/login';
 
-const Login = styled(Main)`
-  flex-direction: column;
-  min-height: 60vh;
-  h1 {
-    font-size: ${fontSizes.xxl};
-  }
-`;
-
 const LoginButton = styled.a`
   display: inline-block;
   background-color: ${colors.green};
   color: ${colors.white};
   border-radius: 30px;
+  margin-top: 20px;
   padding: 17px 35px;
   margin: 20px 0 70px;
   min-width: 160px;
@@ -29,9 +22,12 @@ const LoginButton = styled.a`
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
+  text-decoration: none;
   &:hover,
   &:focus {
     background-color: ${colors.offGreen};
+    color: ${colors.white};
+    text-decoration: none;
   }
 `;
 

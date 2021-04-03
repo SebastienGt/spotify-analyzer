@@ -4,15 +4,15 @@ import { Router } from '@reach/router';
 import mixins from '../styles/mixins';
 import Main from '../styles/Main';
 import { token } from '../spotify';
-import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
+import { logout, getCurrentPlaying, getUserInfo } from '../spotify';
 import Component from 'styled-components';
 import User from './User.js';
 import CurrentPlaying from './CurrentPlaying';
 import Nav from './Nav';
-import Navbar from '../components/Navbar';
 import theme from '../styles/theme';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
+import UserInfo from './UserInfo.js';
 
 const { colors, fontSizes } = theme;
 
@@ -56,17 +56,10 @@ const Profile = () => {
               <div className={stylesheet.columnLeft}>
                     <Router primary={false}>
                       <User path="/" />
-                      <CurrentPlaying path="playing" />
+                        <CurrentPlaying path="playing" />
+                        <UserInfo path="UserInfo" />
                   </Router>
               </div>
-
-              <div className={stylesheet.columnRight}>
-                    <p>LYRICS ICI
-                        <button onClick={logout}>Logout</button>
-                        {token} 
-                    </p>
-
-            </div>
 
           </div>
 
