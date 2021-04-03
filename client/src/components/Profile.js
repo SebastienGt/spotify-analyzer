@@ -5,8 +5,8 @@ import mixins from '../styles/mixins';
 import Main from '../styles/Main';
 import { token } from '../spotify';
 import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
-import Spotify from 'spotify-web-api-js';
 import Component from 'styled-components';
+import User from './User.js';
 import CurrentPlaying from './CurrentPlaying';
 import Nav from './Nav';
 import Navbar from '../components/Navbar';
@@ -24,6 +24,7 @@ const Loginned = styled(Main)`
   h1 {
   }
 `;
+
 
 const LoginButton = styled.a`
   display: inline-block;
@@ -43,7 +44,6 @@ const LoginButton = styled.a`
   }
 `;
 
-const spotifyWebApi = new Spotify;
 
 const Profile = () => {
     return (
@@ -54,7 +54,8 @@ const Profile = () => {
             <Nav/>
           <div className={stylesheet.row}>
               <div className={stylesheet.columnLeft}>
-                  <Router primary={false}>
+                    <Router primary={false}>
+                      <User path="/" />
                       <CurrentPlaying path="playing" />
                   </Router>
               </div>
