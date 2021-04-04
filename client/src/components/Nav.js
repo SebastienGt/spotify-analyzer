@@ -85,7 +85,7 @@ const Nav = () => (
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="userInfo">
+                <NavLink to="UserInfo">
                     <div>User profile</div>
                 </NavLink>
             </MenuItem>
