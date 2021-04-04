@@ -1,34 +1,41 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import { token } from '../spotify';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import LoginScreen from './LoginScreen';
-import Profile from './Profile';
+import React from 'react';
 import styled from 'styled-components/macro';
+import { Router } from '@reach/router';
+import mixins from '../styles/mixins';
+import Main from '../styles/Main';
+import { token } from '../spotify';
+import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
+import User from './User.js';
+import CurrentPlaying from './CurrentPlaying';
+import Nav from './Nav';
+import logo from '../utils/spotify_logo.png';
+import stylesheet from '../utils/stylesheet.module.css';
 
-const AppContainer = styled.div`
-  height: 100%;
-  min-height: 100vh;
-`;
-
-
-
+import Accueil from './Accueil';
 const App = () => {
-  const [accessToken, setAccessToken] = useState('');
-
-  useEffect(() => {
-    setAccessToken(token);
-  }, []);
-
-  return (
-    <AppContainer>
-      {accessToken ? <Profile /> : <LoginScreen />}
-    </AppContainer>
+    return (
+      <>
+          <div className={stylesheet.header}>
+              <img className={stylesheet.logo} src={logo} alt="BigCo Inc. logo" width="200px" height="60px" align />
+          </div>
+            <Nav/>
+          <div className={stylesheet.row}>
+              <div className={stylesheet.columnLeft}>
+                    <Router primary={false}>
+                      <Accueil path="/" />
+                      <CurrentPlaying path="playing" />
+                      <User path="profil" />
+                  </Router>
+              </div>
+              
+          </div>
+      </>
   );
-};
+}
 
-
-
+/*
+<div className={stylesheet.columnRight}>
+                    <p>{token}</p>
+              </div>
+*/
 export default App;

@@ -2,24 +2,34 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { getCurrentPlaying } from '../spotify';
 import { catchErrors } from '../utils';
-import currentPlaying from './CurrentPlaying';
-import stylesheet from '../utils/stylesheet.module.css';
 import getLyr from '../Lyrics/main';
+import axios from 'axios';
+
+function NewLineText(props) {
+    const text = JSON.stringify(props);
+    console.log("ouiiii " + props);
+    return text.split('\\n').map(str => <p>{str}</p>);
+}
 
 
 const CurrentPlaying = () => {
     const [Playing, setCurrentPlaying] = useState(null);
-    const [Lyrics, setLyrics] = useState('');
+    const [Lyrics, setLyrics] = useState(null);
 
     useEffect(() => {
     const fetchData = async () => {
         const { data } = await getCurrentPlaying();
-        console.log("yoooooooooooo" + data);
         setCurrentPlaying(data);
 
-        const paroles = getLyr(data.item.artists[0].name, data.item.name);
-        setLyrics(paroles);
-        console.log("salut " + Lyrics);
+        if (data)
+        {
+            getLyr(data.item.artists[0].name, data.item.name, Lyrics).then(data => {
+                console.log(data);
+                console.log(data.lyrics);
+                setLyrics(JSON.stringify(data.lyrics));
+            });
+        }
+        
     };
     catchErrors(fetchData());
     }, []);
@@ -29,12 +39,10 @@ const CurrentPlaying = () => {
             <h4> Current Playing song</h4>
             <div>
                 { Playing ? (
-                    <div>
-                        <a> { Playing.item.name } </a>
+                    <>
+                        <h2>{ Playing.item.name }, { Playing.item.artists[0].name } </h2>
                         <img src={Playing.item.album.images[2].url } alt="Album"/>
-                        <a> { Playing.item.id } </a>
-                        <a> { Lyrics } </a>
-                    </div>
+                    </>
                 ) : (
                     <h1>No current song playing</h1>
                 )
@@ -42,16 +50,14 @@ const CurrentPlaying = () => {
             </div>
             <div>
                 { 
+                    
                    Lyrics ? (
                         <div>
-                            <a>Les paroles sont : </a>
-                            
-                            <a> { Lyrics } </a>
+                            <NewLineText text= { Lyrics } />
                         </div>
                     ) : (
                         <div>
                             <a>Les paroles n'ont pas été trouvées</a>
-                            <a>test { Lyrics } </a>
                         </div>
                     )
                 }

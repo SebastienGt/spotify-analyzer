@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import theme from '../styles/theme';
-import mixins from '../styles/mixins';
 import Main from '../styles/Main';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';

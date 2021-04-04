@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/macro';
 import { Router } from '@reach/router';
-import mixins from '../styles/mixins';
-import Main from '../styles/Main';
 import { token } from '../spotify';
 import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
-import Spotify from 'spotify-web-api-js';
-import Component from 'styled-components';
-import CurrentPlaying from './CurrentPlaying';
 import UserInfo from './UserInfo';
-import Nav from './Nav';
 import theme from '../styles/theme';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';

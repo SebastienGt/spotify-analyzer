@@ -3,7 +3,6 @@ import { Link } from '@reach/router';
 import styled from 'styled-components/macro';
 import theme from '../styles/theme';
 import mixins from '../styles/mixins';
-import media from '../styles/media';
 
 const { colors } = theme;
 const { fontSizes } = theme;
@@ -100,19 +99,14 @@ const Nav = () => (
                     <div>Recent</div>
                 </NavLink>
             </MenuItem>
+            <MenuItem>
+                <NavLink to="profil">
+                    
+                    <div>Profil</div>
+                </NavLink>
+            </MenuItem>
         </Menu>
     </Container>
 );
-
-//const Nav = () => (
-//    <div>
-//        <Link to="/">
-//            <div>Profil</div>
-//        </Link>
-//        <NavLink to="playing">
-//            <div>Playing</div>
-//        </NavLink>
-//    </div>
-//);
 
 export default Nav;

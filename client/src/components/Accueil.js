@@ -1,12 +1,16 @@
 import React from 'react';
 import { token } from '../spotify';
 import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify'
-const User = () => {
+
+
+
+
+const Accueil = () => {
   return (
     <div>
-      <h2>Bienvenue dans Spotify Lyrics !</h2>
+      <h2>Bienvenue dans Spotify Analyzer !</h2>
       <br/>
-      <a>A deux, nous avons créé ce site pour avoir les paroles des musiques Spotify que nous écoutions.</a>
+      <a>Nous avons créé ce site pour avoir les paroles des musiques Spotify que nous écoutions.</a>
       <br/>
       <a>Nous espérons que le site vous plaira !</a>
       <br/>
@@ -17,4 +21,4 @@ const User = () => {
 }
 
 
-export default User;
+export default Accueil;

@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import Start from './components/Start';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+
+
 ReactDOM.render(
-  <App />,
+  <Start />,
   document.getElementById('root')
 );
 
