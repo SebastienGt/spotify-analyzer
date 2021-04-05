@@ -5,6 +5,7 @@ import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
 import stylesheet from '../utils/stylesheet.module.css';
 import Chart from 'chart.js';
+import Loader from './Loader';
 
 const CurrentPlaying = () => {
 
@@ -136,6 +137,7 @@ const CurrentPlaying = () => {
                     ) : (
                         <div>
                             <a>Les paroles n'ont pas été trouvées</a>
+                            <Loader />
                         </div>
                     )
                 }
