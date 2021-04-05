@@ -36,7 +36,7 @@ const UserProfile = () => {
                 </>
             ) : (
                     <h4>Reconnectez-vous</h4>
-                    )
+                )
             }
 
     </div>
