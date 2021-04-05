@@ -1,9 +1,4 @@
 import React from 'react';
-import { token } from '../spotify';
-import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify'
-
-
-
 
 const Accueil = () => {
   return (

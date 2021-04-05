@@ -1,10 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { token, getCurrentPlaying, getUserInfo} from '../spotify';
+import { getUserInfo } from '../spotify';
 import { catchErrors } from '../utils';
-import currentPlaying from './CurrentPlaying';
-import stylesheet from '../utils/stylesheet.module.css';
-import { getUser } from '../spotify';
 
 const UserInfo = () => {
     const [user, setUser] = useState(null);

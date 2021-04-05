@@ -1,10 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { getCurrentPlaying, setPause, getTrackInfo} from '../spotify';
+import { getCurrentPlaying, getTrackInfo} from '../spotify';
 import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
 import stylesheet from '../utils/stylesheet.module.css';
-import Chart from 'chart.js';
 import Loader from './Loader';
 
 const CurrentPlaying = () => {

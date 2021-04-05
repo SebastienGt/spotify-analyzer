@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getTopArtistsShort, getTopTracksShort, getTopTracksMedium } from '../spotify';
+import { getTopArtistsShort } from '../spotify';
 import { catchErrors } from '../utils';
 
 const Artist = () => {
