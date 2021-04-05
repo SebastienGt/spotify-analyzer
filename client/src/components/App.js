@@ -33,7 +33,7 @@ const App = () => {
                     <User path="profil" />
                     <Stats path="stats" />
                </Router>
-              
+                              
           </div>
       </>
   );

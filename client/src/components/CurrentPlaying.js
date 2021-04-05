@@ -6,29 +6,32 @@ import getLyr from '../Lyrics/main';
 import stylesheet from '../utils/stylesheet.module.css';
 
 const CurrentPlaying = () => {
-    const [Playing, setCurrentPlaying] = useState('');
+
+    const [Playing, setCurrentPlaying] = useState(null);
     const [Lyrics, setLyrics] = useState('');
     const [Analysis, setAnalysis] = useState('');
     const [Features, setFeatures] = useState('');
-
+    const [time, setTime] = useState(Date.now());
 
     useEffect(() => {
     const fetchData = async () => {
         const { data } = await getCurrentPlaying();
-        setCurrentPlaying(data);
-
-        if (data)
+        if (Playing == null || data.item.id != Playing.item.id)
         {
-            getLyr(data.item.artists[0].name, data.item.name, Lyrics).then(data => {
-                console.log(data);
-                console.log(data.lyrics);
-                setLyrics(data.lyrics); 
-            });
+            setCurrentPlaying(data);
+
+            if (data)
+            {
+                getLyr(data.item.artists[0].name, data.item.name, Lyrics).then(data => {
+                    console.log(data);
+                    console.log(data.lyrics);
+                    setLyrics(data.lyrics); 
+                });
+            }
         }
-        
     };
     catchErrors(fetchData());
-    }, []);
+    }, [time]);
 
     useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +44,21 @@ const CurrentPlaying = () => {
     };
     catchErrors(fetchData());
     }, [Playing]);
+
+
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            console.log('Run every seconds');
+            setTime(Date.now())}
+            , 1000);
+        
+        return () => {
+            clearInterval(interval);
+        };
+    }, [time]);
+
+
 
     return (
         <>
