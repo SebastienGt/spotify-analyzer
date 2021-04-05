@@ -101,9 +101,11 @@ export const getCurrentPlaying = () =>
   axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers });
 
 
+export const setNextPlaying = () =>
+  axios.post('https://api.spotify.com/v1/me/player/next', { headers });
 
-
-
+export const setPause = () =>
+  axios.put('https://api.spotify.com/v1/me/player/play', { headers });
 /**
  * Get a List of Current User's Playlists
  * https://developer.spotify.com/documentation/web-api/reference/playlists/get-a-list-of-current-users-playlists/
@@ -130,7 +132,9 @@ export const getTopArtistsLong = () =>
  * https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
  */
 export const getTopTracksShort = () =>
-  axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=short_term', { headers });
+  //axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=short_term', { headers });
+  axios.get('https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50&offset=5', { headers });
+ 
 export const getTopTracksMedium = () =>
   axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=medium_term', {
     headers,

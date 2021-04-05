@@ -1,20 +1,19 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { getCurrentPlaying } from '../spotify';
+import { getCurrentPlaying, setPause } from '../spotify';
 import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
-import axios from 'axios';
+
 
 function NewLineText(props) {
-    const text = JSON.stringify(props);
-    console.log("ouiiii " + props);
-    return text.split('\\n').map(str => <p>{str}</p>);
+    const text = props;
+    return text.split('\n').map(str => <p>{str}</p>);
 }
 
 
 const CurrentPlaying = () => {
     const [Playing, setCurrentPlaying] = useState(null);
-    const [Lyrics, setLyrics] = useState(null);
+    const [Lyrics, setLyrics] = useState('');
 
     useEffect(() => {
     const fetchData = async () => {
@@ -26,10 +25,10 @@ const CurrentPlaying = () => {
             getLyr(data.item.artists[0].name, data.item.name, Lyrics).then(data => {
                 console.log(data);
                 console.log(data.lyrics);
-                setLyrics(JSON.stringify(data.lyrics));
+                setLyrics(data.lyrics);
+                
             });
         }
-        
     };
     catchErrors(fetchData());
     }, []);
@@ -48,12 +47,21 @@ const CurrentPlaying = () => {
                 )
                 }
             </div>
+            {
+                console.log("sasls" + Lyrics)
+            }
             <div>
-                { 
-                    
-                   Lyrics ? (
+                {
+                Lyrics ? (
                         <div>
-                            <NewLineText text= { Lyrics } />
+                            {
+                                Lyrics.split('\n').map((line, i) => (
+                                    <span key={i}>
+                                        {line}
+                                        <br />
+                                    </span>
+                                ))
+                            }
                         </div>
                     ) : (
                         <div>
