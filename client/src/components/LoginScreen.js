@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import theme from '../styles/theme';
-import Main from '../styles/Main';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
-const { colors, fontSizes } = theme;
+const { colors } = theme;
 
 const LOGIN_URI = 'http://localhost:8888/login';
 

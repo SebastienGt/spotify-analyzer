@@ -1,10 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/macro';
 import { Router } from '@reach/router';
-import mixins from '../styles/mixins';
-import Main from '../styles/Main';
-import { token } from '../spotify';
-import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
 import User from './User.js';
 import CurrentPlaying from './CurrentPlaying';
 import Nav from './Nav';
@@ -19,25 +14,23 @@ import Stats from './Stats';
 
 const App = () => {
     return (
-      <>
-          <div className={stylesheet.header}>
-              <img className={stylesheet.logo} src={logo} alt="BigCo Inc. logo" width="200px" height="60px" align />
-          </div>
-            <Nav />
-
-          <div className={stylesheet.content}>
-               <Router primary={false}>
-                    <UserInfo path="UserInfo" />
-                    <Accueil path="/" />
-                    <CurrentPlaying path="playing" />
-                    <Artist path="artists" />
-                    <Playlist path="playlist" />
-                    <User path="profil" />
-                    <Stats path="stats" />
-               </Router>
-                              
-          </div>
-      </>
+    <>
+      <div className={stylesheet.header}>
+        <img className={stylesheet.logo} src={logo} alt="BigCo Inc. logo" width="200px" height="60px" align />
+      </div>
+      <Nav />
+      <div className={stylesheet.content}>
+        <Router primary={false}>
+          <UserInfo path="UserInfo" />
+          <Accueil path="/" />
+          <CurrentPlaying path="playing" />
+          <Artist path="artists" />
+          <Playlist path="playlist" />
+          <User path="profil" />
+          <Stats path="stats" />
+        </Router>
+      </div>
+    </>
   );
 }
 

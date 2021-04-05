@@ -1,24 +1,23 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { getCurrentPlaying, setPause, getTrackInfo} from '../spotify';
+import { getCurrentPlaying, getTrackInfo} from '../spotify';
 import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
 import stylesheet from '../utils/stylesheet.module.css';
-import Chart from 'chart.js';
 import Loader from './Loader';
 
 const CurrentPlaying = () => {
 
     const [Playing, setCurrentPlaying] = useState(null);
     const [Lyrics, setLyrics] = useState('');
-    const [Analysis, setAnalysis] = useState('');
+    //const [Analysis, setAnalysis] = useState('');
     const [Features, setFeatures] = useState('');
     const [time, setTime] = useState(Date.now());
 
     useEffect(() => {
     const fetchData = async () => {
         const { data } = await getCurrentPlaying();
-        if (Playing == null || data.item.id != Playing.item.id)
+        if (Playing == null || data.item.id !== Playing.item.id)
         {
             setCurrentPlaying(data);
             if (data)
@@ -33,7 +32,7 @@ const CurrentPlaying = () => {
         }
     };
     catchErrors(fetchData());
-    }, [time]);
+    }, [time, Playing, Lyrics]);
 
     useEffect(() => {
     const fetchData = async () => {
@@ -87,27 +86,27 @@ const CurrentPlaying = () => {
                                         <>
                                             <h4 className={stylesheet.current}> Song informations :</h4>
 
-                                            <a>Danceability : {Features.danceability} </a>
+                                            <a href>Danceability : {Features.danceability} </a>
                                             <br/>
-                                            <a>Energy : {Features.energy} </a>
+                                            <a href>Energy : {Features.energy} </a>
                                             <br/>
-                                            <a>Key : {Features.key} </a>
+                                            <a href>Key : {Features.key} </a>
                                             <br/>
-                                            <a>Loudness : {Features.loudness} </a>
+                                            <a href>Loudness : {Features.loudness} </a>
                                             <br/>
-                                            <a>Mode : {Features.mode} </a>
+                                            <a href>Mode : {Features.mode} </a>
                                             <br/>
-                                            <a>Speechiness : {Features.speechiness} </a>
+                                            <a href>Speechiness : {Features.speechiness} </a>
                                             <br/>
-                                            <a>acousticness : {Features.acousticness} </a>
+                                            <a href>acousticness : {Features.acousticness} </a>
                                             <br/>
-                                            <a>Instrumentalness : {Features.instrumentalness} </a>
+                                            <a href>Instrumentalness : {Features.instrumentalness} </a>
                                             <br/>
-                                            <a>Livness : {Features.liveness} </a>
+                                            <a href>Livness : {Features.liveness} </a>
                                             <br/>
-                                            <a>Valence : {Features.valence} </a>
+                                            <a href>Valence : {Features.valence} </a>
                                             <br/>
-                                            <a>Tempo : {Features.tempo} </a>
+                                            <a href>Tempo : {Features.tempo} </a>
                                         </>
                                     }
                                 </div>
@@ -136,7 +135,7 @@ const CurrentPlaying = () => {
                         </>
                     ) : (
                         <div>
-                            <a>Les paroles n'ont pas été trouvées</a>
+                            <a href>Les paroles n'ont pas été trouvées</a>
                             <Loader />
                         </div>
                     )

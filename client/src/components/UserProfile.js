@@ -1,33 +1,32 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { token, getCurrentPlaying, getUserInfo } from '../spotify';
+import { getUserInfo } from '../spotify';
 import { catchErrors } from '../utils';
-import currentPlaying from './CurrentPlaying';
 import stylesheet from '../utils/stylesheet.module.css';
-import { getUser, logout } from '../spotify';
+import { logout } from '../spotify';
 
 const UserProfile = () => {
     const [user, setUser] = useState(null);
-    const [followedArtists, setFollowedArtists] = useState(null);
+    /*const [followedArtists, setFollowedArtists] = useState(null);
     const [playlists, setPlaylists] = useState(null);
     const [topArtists, setTopArtists] = useState(null);
-    const [topTracks, setTopTracks] = useState(null);
+    const [topTracks, setTopTracks] = useState(null);*/
 
     useEffect(() => {
         const fetchData = async () => {
-            const { user, followedArtists, playlists, topArtists, topTracks } = await getUserInfo();
+            const { user /*, followedArtists, playlists, topArtists, topTracks*/ } = await getUserInfo();
             setUser(user);
-            setFollowedArtists(followedArtists);
+            /*setFollowedArtists(followedArtists);
             setPlaylists(playlists);
             setTopArtists(topArtists);
-            setTopTracks(topTracks);
+            setTopTracks(topTracks);*/
         };
         catchErrors(fetchData());
     }, []);
 
     return (
     <div>
-        { user?(
+        { user ? (
                 <>
                     <h4> {user.display_name}</h4>
                     <h5> {user.email}</h5>
