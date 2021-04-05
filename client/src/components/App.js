@@ -11,8 +11,11 @@ import Nav from './Nav';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
 import UserInfo from './UserInfo.js';
+import Playlist from './Playlist';
 
 import Accueil from './Accueil';
+import Stats from './Stats';
+
 const App = () => {
     return (
       <>
@@ -23,10 +26,12 @@ const App = () => {
           <div className={stylesheet.row}>
               <div className={stylesheet.columnLeft}>
                     <Router primary={false}>
+                      <UserInfo path="UserInfo" />
                       <Accueil path="/" />
                       <CurrentPlaying path="playing" />
+                      <Playlist path="playlist" />
                       <User path="profil" />
-                      <UserInfo path="UserInfo" />
+                      <Stats path="stats" />
                   </Router>
               </div>
               
@@ -35,9 +40,4 @@ const App = () => {
   );
 }
 
-/*
-<div className={stylesheet.columnRight}>
-                    <p>{token}</p>
-              </div>
-*/
 export default App;

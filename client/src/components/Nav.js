@@ -108,13 +108,18 @@ const Nav = () => (
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="recent">
-                    <div>Recent</div>
+                <NavLink to="playlist">
+                    <div>Playlist</div>
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="profil">  
+                <NavLink to="profil">
                     <div>Profil</div>
+                </NavLink>
+            </MenuItem>
+            <MenuItem>
+                <NavLink to="stats">
+                    <div>Stats</div>
                 </NavLink>
             </MenuItem>
         </Menu>
