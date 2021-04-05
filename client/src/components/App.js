@@ -22,20 +22,18 @@ const App = () => {
           <div className={stylesheet.header}>
               <img className={stylesheet.logo} src={logo} alt="BigCo Inc. logo" width="200px" height="60px" align />
           </div>
-            <Nav/>
-          <div className={stylesheet.row}>
-              <div className={stylesheet.columnLeft}>
-                    <Router primary={false}>
-                      
-                      <Accueil path="/" />
-                      <CurrentPlaying path="playing" />
-                      <Playlist path="playlist" />
-                      <User path="profil" />
-                      <Stats path="stats" />
-                      <UserInfo path="UserInfo" />
-                  </Router>
-              </div>
-              
+            <Nav />
+
+          <div className={stylesheet.content}>
+               <Router primary={false}>
+                    <UserInfo path="UserInfo" />
+                    <Accueil path="/" />
+                    <CurrentPlaying path="playing" />
+                    <Playlist path="playlist" />
+                    <User path="profil" />
+                    <Stats path="stats" />
+               </Router>
+                              
           </div>
       </>
   );
