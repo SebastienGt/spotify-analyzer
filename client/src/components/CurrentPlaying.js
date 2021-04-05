@@ -4,6 +4,7 @@ import { getCurrentPlaying, setPause, getTrackInfo} from '../spotify';
 import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
 import stylesheet from '../utils/stylesheet.module.css';
+import Chart from 'chart.js';
 
 const CurrentPlaying = () => {
 
@@ -19,9 +20,9 @@ const CurrentPlaying = () => {
         if (Playing == null || data.item.id != Playing.item.id)
         {
             setCurrentPlaying(data);
-
             if (data)
             {
+                setLyrics('');
                 getLyr(data.item.artists[0].name, data.item.name, Lyrics).then(data => {
                     console.log(data);
                     console.log(data.lyrics);
@@ -35,6 +36,7 @@ const CurrentPlaying = () => {
 
     useEffect(() => {
     const fetchData = async () => {
+        setFeatures('');
         if (Playing) {
         const { audioAnalysis, audioFeatures } = await getTrackInfo(Playing.item.id);
         console.log("Audio Analysis : " + audioAnalysis);
@@ -44,8 +46,6 @@ const CurrentPlaying = () => {
     };
     catchErrors(fetchData());
     }, [Playing]);
-
-
     
     useEffect(() => {
         const interval = setInterval(() => {
@@ -58,6 +58,7 @@ const CurrentPlaying = () => {
         };
     }, [time]);
 
+    
 
 
     return (
