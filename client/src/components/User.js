@@ -1,19 +1,63 @@
-import React from 'react';
-import { token } from '../spotify';
-import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify'
+import { logout, getUser } from '../spotify'
+import './App.css';
+import React, { useState, useEffect } from 'react';
+import { token, getCurrentPlaying, getUserInfo} from '../spotify';
+import { catchErrors } from '../utils';
+import currentPlaying from './CurrentPlaying';
+import stylesheet from '../utils/stylesheet.module.css';
+
+
+
 const User = () => {
-  return (
-    <div>
-      <h2>Bienvenue dans Spotify Lyrics !</h2>
-      <br/>
-      <a>A deux, nous avons créé ce site pour avoir les paroles des musiques Spotify que nous écoutions.</a>
-      <br/>
-      <a>Nous espérons que le site vous plaira !</a>
-      <br/>
-      <br/>
-      <a>Un projet de Sébastien Friedberg et Alexandre Gomez.</a>
-    </div>
-  );
+  const [user, setUser] = useState(null);
+    const [followedArtists, setFollowedArtists] = useState(null);
+    const [playlists, setPlaylists] = useState(null);
+    const [topArtists, setTopArtists] = useState(null);
+    const [topTracks, setTopTracks] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const { user, followedArtists, playlists, topArtists, topTracks } = await getUserInfo();
+            setUser(user);
+            setFollowedArtists(followedArtists);
+            console.log(playlists);
+            setPlaylists(playlists);
+            setTopArtists(topArtists);
+            setTopTracks(topTracks);
+        };
+        catchErrors(fetchData());
+    }, []);
+
+    return (
+        <>
+        {
+            user?(
+                <>
+                <img src={ user.images[0].url } alt = "Profil" width="400" height="400" />
+                <h4> {user.display_name}</h4>
+                <h5> {user.email}</h5>
+                <h5> Followers : { user.followers.total } </h5>
+                {
+                  playlists ? (
+                    <>
+                  <h5> { 
+                          playlists.items[0].name 
+                        } 
+                  </h5> 
+                  <img src={ playlists.items[1].images[0].url } alt="Playlist" />
+                  </>
+                  ) : (<h5>Pas de playlists</h5>) 
+                }
+                
+                
+                </>
+            ) : (
+                    <h4>Reconnectez-vous</h4>
+                )
+            
+        }
+        </>
+    );
 }
 
 

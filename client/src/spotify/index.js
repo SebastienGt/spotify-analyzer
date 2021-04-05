@@ -236,6 +236,10 @@ export const getAudioFeaturesForTracks = tracks => {
   return axios.get(`https://api.spotify.com/v1/audio-features?ids=${ids}`, { headers });
 };
 
+export const getAudioFeaturesForID = id => {
+  return axios.get(`https://api.spotify.com/v1/audio-features?ids=${id}`, { headers });
+}
+
 /**
  * Get Recommendations Based on Seeds
  * https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
@@ -298,3 +302,4 @@ export const getTrackInfo = trackId =>
         audioFeatures: audioFeatures.data,
       })),
     );
+
