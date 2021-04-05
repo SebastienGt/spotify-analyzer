@@ -29,12 +29,15 @@ const UserProfile = () => {
     <div>
         { user?(
                 <>
-                <h4> {user.display_name}</h4>
-                <h5> {user.email}</h5>
-                    <button className="stylesheet.loginButton" onClick={logout}>Logout</button>
+                    <h4> {user.display_name}</h4>
+                    <h5> {user.email}</h5>
+                    <button className={stylesheet.loginButton} onClick={logout}>Logout</button>
                 </>
             ) : (
-                    <h4> ya rien </h4>
+                    <>
+                        <h4> ya rien </h4>
+                        <button className={stylesheet.loginButton} onClick={logout}>Logout</button>
+                    </>
                     )
             }
 
