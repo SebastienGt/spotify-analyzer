@@ -26,12 +26,13 @@ const App = () => {
           <div className={stylesheet.row}>
               <div className={stylesheet.columnLeft}>
                     <Router primary={false}>
-                      <UserInfo path="UserInfo" />
+                      
                       <Accueil path="/" />
                       <CurrentPlaying path="playing" />
                       <Playlist path="playlist" />
                       <User path="profil" />
                       <Stats path="stats" />
+                      <UserInfo path="UserInfo" />
                   </Router>
               </div>
               
