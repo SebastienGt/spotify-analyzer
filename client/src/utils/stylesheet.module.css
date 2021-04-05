@@ -90,19 +90,32 @@ current{
     color:white;
 }
 
+.content {
+    width:100%;
+    margin-left:250px;
+    color: white;
+}
+
 .row {
     display: flex;
     flex-direction: row;
     color: white;
-    margin-left:350px;
+    margin-left:50px;
 }
 
 .columnLeft {
-    width: 65%;
+    width: 50%;
+    overflow: hidden;
 }
 
 .columnRight {
-    width: 35%;
+    width: 50%;
+}
+
+.noScrollDiv {
+    margin-top:30px;
+    height: 800px;
+    overflow: auto;
 }
 
 .songPlaying {
