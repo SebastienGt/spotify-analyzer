@@ -10,7 +10,9 @@ import CurrentPlaying from './CurrentPlaying';
 import Nav from './Nav';
 import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
+import UserInfo from './UserInfo.js';
 import Playlist from './Playlist';
+
 import Accueil from './Accueil';
 import Stats from './Stats';
 
@@ -29,6 +31,7 @@ const App = () => {
                       <User path="profil" />
                       <Playlist path="playlist" />
                       <Stats path="stats" />
+                      <UserInfo path="UserInfo" />
                   </Router>
               </div>
               

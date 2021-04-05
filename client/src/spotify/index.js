@@ -81,6 +81,10 @@ const headers = {
  */
 export const getUser = () => axios.get('https://api.spotify.com/v1/me', { headers });
 
+export function GetTheUser() {
+    return axios.get('https://api.spotify.com/v1/me', { headers }).then(response => response.data);
+}
+
 /**
  * Get User's Followed Artists
  * https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/

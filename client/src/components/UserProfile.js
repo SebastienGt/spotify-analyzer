@@ -1,38 +1,45 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Router } from '@reach/router';
-import { token } from '../spotify';
-import { logout, getUser, getCurrentPlaying, getUserInfo } from '../spotify';
-import UserInfo from './UserInfo';
-import theme from '../styles/theme';
-import logo from '../utils/spotify_logo.png';
+import { token, getCurrentPlaying, getUserInfo } from '../spotify';
+import { catchErrors } from '../utils';
+import currentPlaying from './CurrentPlaying';
 import stylesheet from '../utils/stylesheet.module.css';
-
-const { colors, fontSizes } = theme;
-
+import { getUser, logout } from '../spotify';
 
 const UserProfile = () => {
+    const [user, setUser] = useState(null);
+    const [followedArtists, setFollowedArtists] = useState(null);
+    const [playlists, setPlaylists] = useState(null);
+    const [topArtists, setTopArtists] = useState(null);
+    const [topTracks, setTopTracks] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const { user, followedArtists, playlists, topArtists, topTracks } = await getUserInfo();
+            setUser(user);
+            setFollowedArtists(followedArtists);
+            setPlaylists(playlists);
+            setTopArtists(topArtists);
+            setTopTracks(topTracks);
+        };
+        catchErrors(fetchData());
+    }, []);
+
     return (
-        <>
-            <div className={stylesheet.header}>
-                <img className={stylesheet.logo} src={logo} alt="BigCo Inc. logo" width="200px" height="60px" align />
-            </div>
-            <div className={stylesheet.row}>
-                <div className={stylesheet.columnLeft}>
-                    <Router primary={false}>
-                        <UserInfo path="userInfo" />
-                    </Router>
-                </div>
-                <div className={stylesheet.columnRight}>
-                    <p>USER PROFILE HERE BORDEL
-                        <button onClick={logout}>Logout</button>
-                        {token}
-                    </p>
-                </div>
+    <div>
+        { user?(
+                <>
+                <img src={ user.images[0].url } alt = "Profil" width="100" height="100" />
+                <h4> {user.display_name}</h4>
+                <h5> {user.email}</h5>
+                    <button className="stylesheet.loginButton" onClick={logout}>Logout</button>
+                </>
+            ) : (
+                    <h4>Reconnectez-vous</h4>
+                    )
+            }
 
-            </div>
-
-        </>
-
+    </div>
     );
 }
 

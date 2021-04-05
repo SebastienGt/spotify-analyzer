@@ -3,6 +3,7 @@ import { Link } from '@reach/router';
 import styled from 'styled-components/macro';
 import theme from '../styles/theme';
 import mixins from '../styles/mixins';
+import UserProfile from './UserProfile.js'
 
 const { colors } = theme;
 const { fontSizes } = theme;
@@ -56,6 +57,15 @@ const MenuItem = styled.li`
   }
 `;
 
+const MenuHeader = styled.li`
+  margin-top: 20px;
+  margin-bottom: 25px;
+  color: ${colors.white};
+  font-size: 11px;
+  border-bottom: 4px solid ${colors.green};
+  }
+`;
+
 const IconNowPlaying = () => (
     <svg
         version="1.1"
@@ -74,6 +84,9 @@ const NavLink = props => <Link getProps={isActive} {...props} />;
 const Nav = () => (
     <Container>
         <Menu>
+            <MenuHeader>
+                <UserProfile/>
+            </MenuHeader>
             <MenuItem>
                 <NavLink to="/">
                     <div>Accueil</div>
