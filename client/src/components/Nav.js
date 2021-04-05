@@ -18,6 +18,7 @@ const Container = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
+  margin-left:-40px;
   width: ${theme.navWidth};
   background-color: #000000;
   text-align: center;
