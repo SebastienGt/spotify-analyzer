@@ -70,8 +70,7 @@ const CurrentPlaying = () => {
                             <div>
                                 <h4 className={stylesheet.current}> Song currently played :</h4>
                                 <img className={ stylesheet.songPlaying } src={ Playing.item.album.images[0].url } alt="Album" />
-                                <h3> { Playing.item.name } </h3>
-                                <h4> { Playing.item.artists[0].name } </h4>
+                                <h3> { Playing.item.name } -  { Playing.item.artists[0].name } </h3>
                             </div>
                         ) : (
                                 <h1>No current song playing</h1>
@@ -85,29 +84,35 @@ const CurrentPlaying = () => {
                                 <div>
                                     {
                                         <>
-                                            <br />
-                                            <br />
                                             <h4 className={stylesheet.current}> Song informations :</h4>
-                                            <br/>
 
-                                            <h5>Danceability : {Features.danceability} </h5>
-                                            <h5>Energy : {Features.energy} </h5>
-                                            <h5>Key : {Features.key} </h5>
-                                            <h5>Loudness : {Features.loudness} </h5>
-                                            <h5>Mode : {Features.mode} </h5>
-                                            <h5>Speechiness : {Features.speechiness} </h5>
-                                            <h5>acousticness : {Features.acousticness} </h5>
-                                            <h5>Instrumentalness : {Features.instrumentalness} </h5>
-                                            <h5>Livness : {Features.liveness} </h5>
-                                            <h5>Valence : {Features.valence} </h5>
-                                            <h5>Temps : {Features.tempo} </h5>
-                                            <h5>Duration : {Features.duration_ms} </h5>
+                                            <a>Danceability : {Features.danceability} </a>
+                                            <br/>
+                                            <a>Energy : {Features.energy} </a>
+                                            <br/>
+                                            <a>Key : {Features.key} </a>
+                                            <br/>
+                                            <a>Loudness : {Features.loudness} </a>
+                                            <br/>
+                                            <a>Mode : {Features.mode} </a>
+                                            <br/>
+                                            <a>Speechiness : {Features.speechiness} </a>
+                                            <br/>
+                                            <a>acousticness : {Features.acousticness} </a>
+                                            <br/>
+                                            <a>Instrumentalness : {Features.instrumentalness} </a>
+                                            <br/>
+                                            <a>Livness : {Features.liveness} </a>
+                                            <br/>
+                                            <a>Valence : {Features.valence} </a>
+                                            <br/>
+                                            <a>Tempo : {Features.tempo} </a>
                                         </>
                                     }
                                 </div>
                             ) :
                                 (
-                                    <h5>Salut</h5>
+                                    <h5>Aucune information sur le morceau</h5>
                                 )
                         }
                     </div>

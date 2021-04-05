@@ -99,18 +99,14 @@ const Nav = () => (
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="UserInfo">
-                    <div>User profile</div>
-                </NavLink>
-            </MenuItem>
-            <MenuItem>
                 <NavLink to="artists">
                     <div>Artists</div>
                 </NavLink>
             </MenuItem>
+            
             <MenuItem>
-                <NavLink to="playlist">
-                    <div>Playlist</div>
+                <NavLink to="stats">
+                    <div>Songs</div>
                 </NavLink>
             </MenuItem>
             <MenuItem>
@@ -119,9 +115,7 @@ const Nav = () => (
                 </NavLink>
             </MenuItem>
             <MenuItem>
-                <NavLink to="stats">
-                    <div>Stats</div>
-                </NavLink>
+            <a class="btn" href="https://github.com/SebastienGt/spotify-analyzer">GitHub</a>
             </MenuItem>
         </Menu>
     </Container>

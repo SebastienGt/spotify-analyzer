@@ -12,6 +12,7 @@ import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
 import UserInfo from './UserInfo.js';
 import Playlist from './Playlist';
+import Artist from './Artist';
 
 import Accueil from './Accueil';
 import Stats from './Stats';
@@ -29,6 +30,7 @@ const App = () => {
                     <UserInfo path="UserInfo" />
                     <Accueil path="/" />
                     <CurrentPlaying path="playing" />
+                    <Artist path="artists" />
                     <Playlist path="playlist" />
                     <User path="profil" />
                     <Stats path="stats" />
