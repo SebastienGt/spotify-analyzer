@@ -8,8 +8,7 @@ import App from './App';
 import styled from 'styled-components/macro';
 
 const AppContainer = styled.div`
-  height: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
 `;
 
 
