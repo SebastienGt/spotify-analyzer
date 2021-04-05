@@ -4,10 +4,11 @@
     "\\public",
     "\\src",
     "\\src\\components",
+    "\\src\\Lyrics",
     "\\src\\spotify",
     "\\src\\styles",
     "\\src\\utils"
   ],
-  "SelectedNode": "\\src\\components\\Profile.js",
+  "SelectedNode": "\\src\\components\\UserInfo.js",
   "PreviewInSolutionExplorer": false
 }

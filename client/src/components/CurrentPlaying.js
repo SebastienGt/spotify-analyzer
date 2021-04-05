@@ -4,6 +4,7 @@ import { getCurrentPlaying } from '../spotify';
 import { catchErrors } from '../utils';
 import getLyr from '../Lyrics/main';
 import axios from 'axios';
+import stylesheet from '../utils/stylesheet.module.css';
 
 function NewLineText(props) {
     const text = JSON.stringify(props);
@@ -36,17 +37,20 @@ const CurrentPlaying = () => {
 
     return (
         <>
-            <h4> Current Playing song</h4>
-            <div>
-                { Playing ? (
-                    <>
-                        <h2>{ Playing.item.name }, { Playing.item.artists[0].name } </h2>
-                        <img src={Playing.item.album.images[2].url } alt="Album"/>
-                    </>
-                ) : (
-                    <h1>No current song playing</h1>
-                )
-                }
+            <div className={stylesheet.playing}>
+                <h4 className={stylesheet.current}> Song currently played :</h4>
+                <div>
+                    {Playing ? (
+                        <div>
+                            <img className={stylesheet.songPlaying} src={Playing.item.album.images[0].url} alt="Album" />
+                            <h3> {Playing.item.name} </h3>
+                            <h4> {Playing.item.artists[0].name} </h4>
+                        </div>
+                    ) : (
+                            <h1>No current song playing</h1>
+                        )
+                    }
+                </div>
             </div>
             <div>
                 { 
