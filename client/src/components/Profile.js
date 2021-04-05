@@ -3,9 +3,6 @@ import styled from 'styled-components/macro';
 import { Router } from '@reach/router';
 import mixins from '../styles/mixins';
 import Main from '../styles/Main';
-import { token } from '../spotify';
-import { logout, getCurrentPlaying, getUserInfo } from '../spotify';
-import Component from 'styled-components';
 import User from './User.js';
 import CurrentPlaying from './CurrentPlaying';
 import Nav from './Nav';
@@ -14,7 +11,7 @@ import logo from '../utils/spotify_logo.png';
 import stylesheet from '../utils/stylesheet.module.css';
 import UserInfo from './UserInfo.js';
 
-const { colors, fontSizes } = theme;
+const { colors} = theme;
 
 
 const Loginned = styled(Main)`
