@@ -91,7 +91,6 @@ current{
 }
 
 .content {
-    width:100%;
     margin-left:250px;
     color: white;
 }
@@ -113,9 +112,15 @@ current{
 }
 
 .noScrollDiv {
-    margin-top:30px;
+    margin-top: 30px;
     height: 800px;
     overflow: auto;
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.noScrollDiv::-webkit-scrollbar {
+    display: none;
 }
 
 .songPlaying {
