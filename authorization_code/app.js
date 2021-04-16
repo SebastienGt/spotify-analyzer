@@ -15,8 +15,10 @@ var cookieParser = require('cookie-parser');
 
 var client_id = 'a5013a42e9184afca6ba74a561515b32'; // Your client id
 var client_secret = '61b38487e482451da9f4fd2252e41a0a'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
-
+//var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var redirect_uri = 'https://mighty-shore-31251.herokuapp.com/callback'; // Your redirect uri
+//
+//https://mighty-shore-31251.herokuapp.com/
 
 /**
  * Generates a random string containing numbers and letters
@@ -38,8 +40,8 @@ var stateKey = 'spotify_auth_state';
 var app = express();
 
 app.use(express.static(__dirname + '/public'))
-   .use(cors())
-   .use(cookieParser());
+  .use(cors())
+  .use(cookieParser());
 
 app.get('/login', function(req, res) {
 
@@ -146,4 +148,4 @@ app.get('/refresh_token', function(req, res) {
 
 
 console.log('Listening on 8888');
-app.listen(8888);
+app.listen(process.env.PORT || 8888);
