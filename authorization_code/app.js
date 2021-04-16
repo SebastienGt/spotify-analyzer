@@ -26,15 +26,6 @@ var frontEnd_uri = 'https://mighty-shore-31251.herokuapp.com';
  * @return {string} The generated string
  */
 
-
-app.use(express.static('client/build'));
-
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-})
-
-
 var generateRandomString = function(length) {
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
