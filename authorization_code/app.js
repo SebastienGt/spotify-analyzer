@@ -40,9 +40,14 @@ var stateKey = 'spotify_auth_state';
 
 var app = express();
 
-app.use(express.static(__dirname + 'client/public'))
+app.use(express.static(__dirname + '../client/build'))
   .use(cors())
   .use(cookieParser());
+
+
+app.get('/', function (req, res) {
+  res.render(path.resolve(__dirname, '../client/build/index.html'));
+});
 
 app.get('/login', function(req, res) {
 
@@ -148,7 +153,7 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-app.get('*', (req, response) => {
+app.get('*', function (request, response) {
 	response.sendFile(path.join(__dirname, '../client/public', 'index.html'));
 });
 
