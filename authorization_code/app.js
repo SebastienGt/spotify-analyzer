@@ -149,7 +149,7 @@ app.get('/refresh_token', function(req, res) {
 });
 
 app.get('*', (req, response) => {
-	response.sendFile(path.join(__dirname, 'client', 'public', 'index.html'));
+	response.sendFile(path.join(__dirname, '../client/public', 'index.html'));
 });
 
 
