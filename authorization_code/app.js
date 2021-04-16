@@ -21,7 +21,7 @@ var client_secret = '61b38487e482451da9f4fd2252e41a0a'; // Your secret
 var redirect_uri = 'https://mighty-shore-31251.herokuapp.com/callback'; // Your redirect uri
 //
 //https://mighty-shore-31251.herokuapp.com/
-var frontEnd_uri = 'https://mighty-shore-31251.herokuapp.com';
+
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
