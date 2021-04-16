@@ -30,16 +30,17 @@ const UserProfile = () => {
                 <>
                     <h4> {user.display_name}</h4>
                     <h5> {user.email}</h5>
-                    <button className={stylesheet.loginButton} onClick={logout}>Logout</button>
+                    <button className={ stylesheet.loginButton } onClick={ logout }>
+                        <a href>Logout</a>
+                    </button>
                 </>
             ) : (
                 <>
                     <h4>Reconnectez-vous</h4>
-                    <button className={stylesheet.loginButton} onClick={logout}>Logout</button>
+                    <button className={ stylesheet.loginButton } onClick={ logout }>Logout</button>
                 </>
                 )
             }
-
     </div>
     );
 }
