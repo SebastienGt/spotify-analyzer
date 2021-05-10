@@ -1,25 +1,19 @@
-/**
- * This is an example of a basic node.js script that performs
- * the Authorization Code oAuth2 flow to authenticate against
- * the Spotify Accounts.
- *
- * For more information, read
- * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
- */
-
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+var path = require('path');
 
 var client_id = 'a5013a42e9184afca6ba74a561515b32'; // Your client id
 var client_secret = '61b38487e482451da9f4fd2252e41a0a'; // Your secret
 //var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
-var redirect_uri = 'https://mighty-shore-31251.herokuapp.com/callback'; // Your redirect uri
+var redirect_uri = 'https://intense-taiga-06566.herokuapp.com/callback'; // Your redirect uri
 //
 //https://mighty-shore-31251.herokuapp.com/
-var frontEnd_uri = 'https://mighty-shore-31251.herokuapp.com';
+var frontEnd_uri = 'https://intense-taiga-06566.herokuapp.com/';
+
+var PORT = process.env.PORT || 8888;
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -39,7 +33,10 @@ var stateKey = 'spotify_auth_state';
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, '/client/build')));
+
+
+app.use(express.static(__dirname + '/client/public'))
   .use(cors())
   .use(cookieParser());
 
@@ -108,7 +105,7 @@ app.get('/callback', function(req, res) {
 
         // we can also pass the token to the browser to make requests from there
         //res.redirect('http://localhost:3000/#' +
-        res.redirect('https://mighty-shore-31251.herokuapp.com/#' +
+        res.redirect('https://intense-taiga-06566.herokuapp.com/#' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
@@ -149,4 +146,6 @@ app.get('/refresh_token', function(req, res) {
 
 
 console.log('Listening on 8888');
-app.listen(process.env.PORT || 8888);
+app.listen(PORT, () => {
+  console.log("Spotify App is listening on");
+});

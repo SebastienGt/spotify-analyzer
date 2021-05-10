@@ -6,7 +6,7 @@ import stylesheet from '../utils/stylesheet.module.css';
 const { colors } = theme;
 
 //const LOGIN_URI = 'http://localhost:8888/login';
-const LOGIN_URI = 'https://mighty-shore-31251.herokuapp.com/login';
+const LOGIN_URI = 'https://intense-taiga-06566.herokuapp.com/login';
 
 
 const LoginButton = styled.a`
