@@ -1,6 +1,23 @@
-
 h1 {
     color: white;
+}
+
+h5 {
+    color: white;
+}
+
+h5 a {
+    color: white;
+    text-decoration: underline;
+}
+
+h5 a:hover {
+    color: white;
+}
+
+.sousTitre {
+    text-align: center;
+    letter-spacing: 0.2vh;
 }
 
 .logo {
@@ -13,7 +30,7 @@ h1 {
 
 .header {
     margin-top: 45px;
-    padding-right:235px;
+    padding-right: 235px;
     width: 100%;
     height: 145px;
     border-bottom: 1px solid rgba(250, 250, 250, 0.1);
@@ -26,12 +43,12 @@ h1 {
 
 .loginButton {
     display: inline-block;
-    background-color: #1DB954;
+    background-color: #1db954;
     color: white;
     border-radius: 30px;
     padding: 15px 15px;
-    margin-top:5px;
-    margin-bottom:15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     min-width: 160px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -40,9 +57,8 @@ h1 {
 }
 
 .button:hover:focus {
-    background-color: #188D42;
+    background-color: #188d42;
 }
-
 
 .login {
     margin-top: 100px;
@@ -55,42 +71,41 @@ h1 {
 }
 
 nav {
-    height:50px;
-    background: linear-gradient(45deg, rgb(156,14,156, midnightblue));
-
+    height: 50px;
+    background: linear-gradient(45deg, rgb(156, 14, 156, midnightblue));
 }
 
 .liste {
     list-style-type: none;
-    background: linear-gradient(45deg, rgb(156,14,156, midnightblue));
+    background: linear-gradient(45deg, rgb(156, 14, 156, midnightblue));
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:relative;
+    position: relative;
 }
 
-.items{
+.items {
     margin-right: 10px;
     color: white;
     cursor: pointer;
 }
 
-.btn{
+.btn {
     display: none;
 }
 
-.playing{
-    color:white;
-    width:50%;
+.playing {
+    color: white;
+    width: 50%;
 }
 
-current{
-    color:white;
+current {
+    color: white;
 }
 
 .content {
-    margin-left:250px;
+    margin-left: 250px;
     color: white;
 }
 
@@ -98,7 +113,7 @@ current{
     display: flex;
     flex-direction: row;
     color: white;
-    margin-left:50px;
+    margin-left: 50px;
 }
 
 .columnLeft {
