@@ -114,7 +114,11 @@ app.get("/callback", function (req, res) {
                 //res.redirect('http://localhost:3000/#' +
                 res.redirect(
                     PROD
-                        ? "https://spotify-dash.herokuapp.com/#"
+                        ? "https://spotify-dash.herokuapp.com/#" +
+                              querystring.stringify({
+                                  access_token: access_token,
+                                  refresh_token: refresh_token,
+                              })
                         : "http://localhost:3000/#" +
                               querystring.stringify({
                                   access_token: access_token,
