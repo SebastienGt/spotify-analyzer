@@ -5,7 +5,7 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 var path = require("path");
 
-var PROD = false;
+var PROD = true;
 
 var client_id = "a5013a42e9184afca6ba74a561515b32"; // Your client id
 var client_secret = "61b38487e482451da9f4fd2252e41a0a"; // Your secret

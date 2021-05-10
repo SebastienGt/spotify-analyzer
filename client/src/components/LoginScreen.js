@@ -6,7 +6,7 @@ import stylesheet from "../utils/stylesheet.module.css";
 const { colors } = theme;
 
 //const LOGIN_URI = 'http://localhost:8888/login';
-var PROD = false;
+var PROD = true;
 const LOGIN_URI = PROD
     ? "https://spotify-dash.herokuapp.com/login"
     : "http://localhost:8888/login";
