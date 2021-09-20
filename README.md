@@ -2,6 +2,9 @@
 
 This project have been designed and developped by `Sébastien FRIEDBERG` and `Alexandre GOMEZ` 
 
+![alt text](https://github.com/SebastienGt/spotify-analyzer/blob/master/spotify_portable.jpg?raw=true)
+
+
 # Summary
 1. [Global description](#Global)
 2. [Prerequisite](#Prerequisite)
