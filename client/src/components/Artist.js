@@ -18,25 +18,27 @@ const Artist = () => {
     return (
         <>
             <h1>Vos artistes les plus écoutés : </h1>
-            <div>
+            <>
                 {   artists ? (
                     <div>
-                        <ul>
+                        <table>
                         {
-                        list.map(item => 
-                        <li key={ item.toString() } >
-                            <h2> { item + 1} </h2>
-                            <h2>{ artists.items[item].name}</h2>
-                            <img src={ artists.items[item].images[2].url } alt="Album" />
-                        </li>
+                        list.map(item =>
+                            <tr>
+                                <th> { item + 1} </th>
+                                <th>{ artists.items[item].name}</th>
+                                <th>
+                                    <img src={ artists.items[item].images[2].url } alt={artists.items[item].name} />
+                                </th>
+                            </tr>
                         )}
-                        </ul>
+                        </table>
                     </div>
                 ) : (
                     <h1>No current stats on artists</h1>
                 )
                 }
-            </div>
+            </>
         </>
     );
 }

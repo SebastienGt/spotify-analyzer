@@ -41,3 +41,17 @@ div,
 button {
     margin: 15px;
 }
+
+
+table
+{
+    border-collapse: collapse;
+    margin: 35px;
+    margin-top: 100px;
+}
+td, th /* Mettre une bordure sur les td ET les th */
+{
+    border: 1px solid #31333a;
+    background: #212429;
+    padding: 50px;
+}

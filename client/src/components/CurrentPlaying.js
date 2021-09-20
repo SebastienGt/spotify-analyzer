@@ -17,31 +17,27 @@ const CurrentPlaying = () => {
         const fetchData = async () => {
             const { data } = await getCurrentPlaying();
             console.log(data);
-            if (data === "") return;
-            if (data.item.id) {
-                if (Playing !== null) {
-                    if (data.item.id !== Playing.item.id) {
-                        setCurrentPlaying(data);
-                        if (data) {
-                            setLyrics("");
-                            getLyr(
-                                data.item.artists[0].name,
-                                data.item.name,
-                                Lyrics
-                            ).then((data) => {
-                                console.log(data);
-                                console.log(data.lyrics);
-                                setLyrics(data.lyrics);
-                            });
-                        }
-                    }
-                } else {
-                    setCurrentPlaying(data);
-                }
+            if (data === "" || data === null || data.item.id === null) return;
+            
+            console.log("PLAYING : " + Playing);
+
+            if (Playing === null || (data.item.id !== Playing.item.id)) {
+                    setLyrics("");
+                    getLyr(
+                        data.item.artists[0].name,
+                        data.item.name,
+                        Lyrics
+                    ).then((data) => {
+                        console.log(data);
+                        console.log(data.lyrics);
+                        setLyrics(data.lyrics);
+                    });
+                    
+                setCurrentPlaying(data);
             }
         };
         catchErrors(fetchData());
-    }, [time, Playing, Lyrics]);
+    }, [time]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -60,9 +56,9 @@ const CurrentPlaying = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            console.log("Run every seconds");
+            //console.log("Run every seconds");
             setTime(Date.now());
-        }, 1000);
+        }, 5000);
 
         return () => {
             clearInterval(interval);

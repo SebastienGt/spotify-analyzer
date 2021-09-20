@@ -23,16 +23,18 @@ const Stats = () => {
             <div>
                 {   tracks ? (
                         <div>
-                            <ul>
+                            <table>
                                 {
                                 list.map(item =>
-                                <li key={ item.toString() } >
-                                    <h2> { item + 1 } </h2>
-                                    <h2> { tracks.items[item].name } </h2>
-                                    <img src={ tracks.items[item].album.images[1].url } alt = "Tracks" />
-                                </li>
+                                <tr>
+                                    <th> { item + 1 } </th>
+                                    <th> { tracks.items[item].name } </th>
+                                    <th>
+                                        <img src={ tracks.items[item].album.images[1].url } width="150px" height="150px" alt = "Tracks" />
+                                    </th>
+                                </tr>
                                 )}
-                            </ul>
+                            </table>
                         </div>
                     ) : (
                         <h1>No current stats on tracks</h1>
