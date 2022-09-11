@@ -28,9 +28,9 @@ const CurrentPlaying = () => {
                         data.item.name,
                         Lyrics
                     ).then((data) => {
-                        console.log(data);
-                        console.log(data.lyrics);
-                        setLyrics(data.lyrics);
+                        if (data === undefined) return;
+                        console.log(data.result.lyrics);
+                        setLyrics(data.result.lyrics);
                     });
                     
                 setCurrentPlaying(data);
@@ -46,8 +46,8 @@ const CurrentPlaying = () => {
                 const { audioAnalysis, audioFeatures } = await getTrackInfo(
                     Playing.item.id
                 );
-                console.log("Audio Analysis : " + audioAnalysis);
-                console.log("Audio features : " + audioFeatures);
+                //console.log("Audio Analysis : " + JSON.stringify(audioAnalysis));
+                console.log("Audio features : " + JSON.stringify(audioFeatures));
                 setFeatures(audioFeatures);
             }
         };

@@ -10,7 +10,6 @@ const Stats = () => {
     const fetchData = async () => {
         const { data } = await getTopTracksShort();
         setTracks(data);
-        console.log(data);
     }
     catchErrors(fetchData());
     }, []);

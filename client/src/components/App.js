@@ -20,7 +20,6 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             const { user } = await getUserInfo();
-            console.log("jfeifjei");
             console.log(user);
             if (user === null)
                 logout();
