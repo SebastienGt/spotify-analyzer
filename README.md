@@ -36,8 +36,7 @@ Once you have installed Node.js and have the project in your development machine
 `npm install`
 `npm start`
 
-![image](https://github.com/SebastienGt/spotify-companion/assets/37266642/5b3d5b6f-b2ae-46b6-9eec-fcc4c34015d2)
-
+![image](https://github.com/SebastienGt/spotify-companion/assets/37266642/88e3b273-7579-45db-8468-113c3ae348b0)
 
 Retrouvez vos statistiques Spotify :
 ![image](https://github.com/SebastienGt/spotify-companion/assets/37266642/7a397d7e-d9f4-454a-be54-15d68270e426)
